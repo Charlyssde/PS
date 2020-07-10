@@ -1,24 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
-</head>
-<body style="background-color: aquamarine;">
-    <div class="text-center">
-        <span class="h3"> Visualizacion de citas</span>
-    </div>
-    <div class="container overflow-auto" id="viewCitas" style="margin: 50px; background-color: darkgray; height: 500px; width: 1250px;">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .some {
+            margin: 35px 30px;
+        }
 
+        #resultado {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
+
+        #resultado.ok {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body style="background-color:beige;">
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">CITAS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">AGENDAR CITA</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                aria-controls="contact" aria-selected="false">DOCTORES</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="text-center">
+                <span class="h3"> Visualizacion de citas</span>
+            </div>
+            <div class="container overflow-auto" id="viewCitas"
+                style="margin: 50px; background-color: darkgray; height: 500px; width: 1250px;">
+
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link disabled" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                    aria-controls="v-pills-home" aria-selected="true">Cita más pronta</a>
+                <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                    role="tab" aria-controls="v-pills-profile" aria-selected="false">Agendar</a>
+            </div>
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab">
+                    <div class="container"
+                        style="width: 1200px; height: 500px; background-color: blanchedalmond; margin: 50px 150px;">
+                        <div class="text-center">
+                            <span class="h4" style="font-weight: bold;"> Registro de cita</span>
+
+                        </div>
+                        <form class="form">
+                            <div class="row">
+                                <div class="col some">
+                                    <label for="fecha"> Fecha</label>
+                                    <input id="fecha" type="date" class="form-control" required>
+                                </div>
+                                <div class="col some">
+                                    <label for="hora">Hora</label>
+                                    <br>
+                                    <select class="form-control" name="hora" id="hora" required>
+                                        <option value="1">9:00</option>
+                                        <option value="2">9:30</option>
+                                        <option value="3">10:00</option>
+                                        <option value="4">10:30</option>
+                                        <option value="5">11:00</option>
+                                        <option value="6">11:30</option>
+                                        <option value="7">12:00</option>
+                                        <option value="8">12:30</option>
+                                        <option value="9">13:00</option>
+                                        <option value="10">13:30</option>
+                                        <option value="11">14:00</option>
+                                        <option value="12">14:30</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col some">
+                                    <label for="curp">CURP</label>
+                                    <input id="curp" type="text" class="form-control" placeholder="CURP"
+                                        onkeyup="this.value = this.value.toUpperCase();" oninput="validarInput(this)" required>
+                                    <pre id="resultado"></pre>
+                                </div>
+                                <div class="col some">
+                                    <label for="doctor">Doctor</label>
+                                    <select class="form-control" name="doctor" id="doctor" required>
+                                        <option value="1">some</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col some">
+                                    <input id="btnBack" type="button" class="btn btn-danger" value="Regresar">
+                                </div>
+                                <div class="col some text-right">
+                                    <input id="btnGuardar" type="submit" class="btn btn-primary" value="Guardar">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
     </div>
-    
+
 </body>
 
 <script src="../Scripts/load_citas.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="../Scripts/reg_cita.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
 </html>

@@ -11,10 +11,10 @@ btnGuardar.addEventListener("click", function(){
     var doctor = document.getElementById("doctor").value;
 
     if (hora == "" || fecha == "" || !curpValidada || doctor == "") {
-        alert("No se pueden quedar los campos vacíos");
+        //alert("No se pueden quedar los campos vacíos");
     } else {
         var ourRequest = new XMLHttpRequest();
-        ourRequest.open('POST', '');
+        ourRequest.open('POST', 'URL CON PARAMETROS');
         ourRequest.onload = function () {
             if (ourRequest.status >= 200 && ourRequest.status < 400) {
                 alert("EXITO AL GUARDAR");

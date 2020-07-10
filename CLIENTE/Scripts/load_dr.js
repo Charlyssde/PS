@@ -1,7 +1,7 @@
 var sel = document.getElementById('doctor');
 
 var ourRequest = new XMLHttpRequest();
-ourRequest.open('GET', '');
+ourRequest.open('GET', 'URL DEL GET DOCTORES');
 ourRequest.onload = function () {
   if (ourRequest.status >= 200 && ourRequest.status < 400) {
     var ourData = JSON.parse(ourRequest.responseText);

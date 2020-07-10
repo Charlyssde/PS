@@ -10,7 +10,7 @@ btnIngresar.addEventListener("click", function () {
     } else {
         var ourRequest = new XMLHttpRequest();
         
-        ourRequest.open('GET', '');
+        ourRequest.open('GET', 'URL CON PARAMETROS');
         
         ourRequest.onload = function () {
             if (ourRequest.status >= 200 && ourRequest.status < 400) {
