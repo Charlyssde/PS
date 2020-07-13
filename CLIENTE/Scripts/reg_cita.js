@@ -14,7 +14,14 @@ btnGuardar.addEventListener("click", function(){
         //alert("No se pueden quedar los campos vacíos");
     } else {
         var ourRequest = new XMLHttpRequest();
-        ourRequest.open('POST', 'URL CON PARAMETROS');
+        
+	var data = new FormData();
+	data.append('IdDoctor', doctor);
+	data.append('IdPaciente', curp);
+	data.append('FechaHora', fecha+hora);
+
+	ourRequest.open('POST', 'https://localhost:44318/api/Citas');
+	
         ourRequest.onload = function () {
             if (ourRequest.status >= 200 && ourRequest.status < 400) {
                 alert("EXITO AL GUARDAR");
@@ -29,7 +36,7 @@ btnGuardar.addEventListener("click", function(){
         };
         
 
-        ourRequest.send();
+        ourRequest.send(data);
     }
 });
 
@@ -52,7 +59,16 @@ function curpValida(curp) {
         lngDigito = 10 - lngSuma % 10;
         if (lngDigito == 10) return 0;
         return lngDigito;
-    }
+	var ourRequest = new XMLHttpRequest();
+	our1Request.open('GET', 'https://localhost:44318/api/Pacientes?id='+curp);
+	our1Request.onload = function () {
+  if (our1Request.status != 200 && ourRequest.status < 400){
+	var our2Request = new XMLHttpRequest();
+	our2Request.open('GET', 'https://conectame.ddns.net/rest/api.php?m=curp&user=prueba&pass=sC%7D9pW1Q%5Dc&val='+curp);
+}
+
+//agregar si no esta
+}
   
     if (validado[2] != digitoVerificador(validado[1])) 
     	return false;
