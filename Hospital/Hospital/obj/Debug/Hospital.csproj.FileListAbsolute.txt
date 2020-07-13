@@ -92,7 +92,6 @@ C:\Users\ferna\source\repos\Hospital\Hospital\bin\es\System.Web.Razor.resources.
 C:\Users\ferna\source\repos\Hospital\Hospital\bin\es\System.Web.WebPages.resources.dll
 C:\Users\ferna\source\repos\Hospital\Hospital\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\ferna\source\repos\Hospital\Hospital\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\ferna\source\repos\Hospital\Hospital\obj\Debug\Hospital.csprojAssemblyReference.cache
 C:\Users\ferna\source\repos\Hospital\Hospital\obj\Debug\Hospital.csproj.CoreCompileInputs.cache
 C:\Users\ferna\source\repos\Hospital\Hospital\obj\Debug\Hospital.csproj.CopyComplete
 C:\Users\ferna\source\repos\Hospital\Hospital\obj\Debug\Hospital.dll

@@ -35,6 +35,15 @@ namespace Hospital.Controllers
             return Ok(cita);
         }
 
+        // GET: api/Citas/6
+
+        [Route("getCitasPorDoctor")]
+        [HttpGet]
+        public IQueryable<Cita> GetCitasPorDoctor(int idDoctor, DateTime fecha)
+        {
+            return db.Cita.Where(C => C.Doctor.Id == idDoctor && DbFunctions.TruncateTime(C.FechaHora) == DbFunctions.TruncateTime(fecha)); 
+        }
+
         // PUT: api/Citas/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCita(int id, Cita cita)

@@ -9,9 +9,11 @@
 
 namespace Hospital.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
     public partial class Cita
     {
         public int Id { get; set; }
@@ -19,8 +21,11 @@ namespace Hospital.Models
         public string IdPaciente { get; set; }
         public Nullable<System.DateTime> FechaHora { get; set; }
         public Nullable<bool> Checkinn { get; set; }
-    
+        [JsonIgnore]
+        [IgnoreDataMember]
         public virtual Doctor Doctor { get; set; }
+        [JsonIgnore]
+        [IgnoreDataMember]
         public virtual Paciente Paciente { get; set; }
     }
 }
