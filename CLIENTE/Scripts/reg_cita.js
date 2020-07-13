@@ -59,13 +59,31 @@ function curpValida(curp) {
         lngDigito = 10 - lngSuma % 10;
         if (lngDigito == 10) return 0;
         return lngDigito;
+	//existe en bd?
 	var ourRequest = new XMLHttpRequest();
 	our1Request.open('GET', 'https://localhost:44318/api/Pacientes?id='+curp);
 	our1Request.onload = function () {
-  if (our1Request.status != 200 && ourRequest.status < 400){
+  if (our1Request.status != 200 && our1Request.status < 400){
+	
 	var our2Request = new XMLHttpRequest();
 	our2Request.open('GET', 'https://conectame.ddns.net/rest/api.php?m=curp&user=prueba&pass=sC%7D9pW1Q%5Dc&val='+curp);
-}
+	if (our2Request.status >= 200 && our2Request.status < 400){
+		var ourData = JSON.parse(ourRequest.responseText);
+		var our3Request = new XMLHttpRequest();
+        
+		var data = new FormData();
+		data.append('Curp', ourData.Curp);
+		data.append('Nombres', ourData.Nombre);
+		data.append('ApellidoP', ourData.Paterno);
+		data.append('ApellidoM', ourData.Materno);
+		data.append('FechaNac', ourData.FechaNacimiento);
+		our3Request.open('POST', 'https://localhost:44318/api/Pacientes');
+		our3Request.send(data);	
+	}
+	our2Request.send();
+	
+ }
+ our1Request.send();
 
 //agregar si no esta
 }
